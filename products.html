@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUAD PLEX PRODUCTS - Innovative Business Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #df7a43 0%, #df7a43 100%);
+        }
+        
+        .card-gradient {
+            background: linear-gradient(145deg, #777777 0%, #777777 100%);
+        }
+        
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+        
+        .icon-bounce {
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .pulse-ring {
+            animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto text-center text-black">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                    QUAD PLEX
+                    <span class="block text-3xl md:text-4xl font-light opacity-90">PRODUCTS</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-light opacity-90 max-w-3xl mx-auto leading-relaxed">
+                    Innovative business solutions designed to transform your operations and accelerate growth across East Africa
+                </p>
+            </div>
+        </div>
+        
+        <!-- Animated background elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full pulse-ring"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full pulse-ring" style="animation-delay: 1s;"></div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-black-800 mb-6">
+                    Our Solutions
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-black-600 to-black-600 mx-auto mb-6 rounded-full"></div>
+                <p class="text-lg text-black-600 max-w-2xl mx-auto leading-relaxed">
+                    Comprehensive technology solutions tailored for modern businesses across various industries
+                </p>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+                
+                <!-- Plexus Care Hospital Information System -->
+                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-1 group relative overflow-hidden">
+                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="text-6xl mb-6 ">🏥</div>
+                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                            Plexus Care Hospital Information System
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Comprehensive healthcare management solution designed for hospitals and medical facilities across East Africa.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Healthcare</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Management</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Odoo ERP -->
+                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-2 group relative overflow-hidden">
+                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="text-6xl mb-6 " style="animation-delay: 0.5s;">⚙️</div>
+                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                            Odoo ERP All-in-One Business Software
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Complete business management suite covering CRM, accounting, inventory, and more in one integrated platform.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">ERP</span>
+                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Business</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Logitude Freight Forwarding -->
+                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-3 group relative overflow-hidden">
+                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="text-6xl mb-6 " style="animation-delay: 1s;">🚚</div>
+                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                            Logitude Freight Forwarding Software
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Streamline your logistics operations with our advanced freight forwarding and supply chain management system.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Logistics</span>
+                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Supply Chain</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- IT Infrastructure Solutions -->
+                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-4 group relative overflow-hidden">
+                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="text-6xl mb-6 " style="animation-delay: 1.5s;">💻</div>
+                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                            IT Infrastructure Solutions
+                        </h3>
+                        <p class="text-black-600 leading-relaxed mb-6">
+                            Complete range of hardware including servers, laptops, UPS systems, and stabilizers for your business needs.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Hardware</span>
+                            <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Infrastructure</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 px-6 bg-gradient-to-r from-orange-700 to-orange-600 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h3>
+            <p class="text-lg opacity-90 mb-8 leading-relaxed">
+                Contact us today to discover how our innovative solutions can drive your business forward
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                    Get Started
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
+                    <a href="contact us.html" class="cta-button">Contact Sales</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add some interactive behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Add click handlers for Learn More buttons
+            document.querySelectorAll('button').forEach(button => {
+                if (button.textContent === 'Learn More') {
+                    button.addEventListener('click', function() {
+                        // Add a subtle feedback animation
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                        
+                        // You can add actual navigation logic here
+                        console.log('Learn more clicked for:', this.closest('.group').querySelector('h3').textContent);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
