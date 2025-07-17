@@ -11,6 +11,13 @@
       padding: 0;
       background-color: white;
       color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-content {
+      flex: 1;
     }
 
     .section {
@@ -69,7 +76,113 @@
       text-decoration: underline;
     }
 
-    /* Fade-in animation (optional) */
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #000, #1a202c);
+      color: white;
+      padding: 10px 0 10px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+
+    .footer-section h3 {
+      color: #df7a43;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-section p,
+    .footer-section li {
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #df7a43;
+    }
+
+    .contact-info-footer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .contact-info-footer i {
+      margin-right: 10px;
+      width: 20px;
+      color: #df7a43;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #df7a43;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: #c5633a;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #2d3748;
+      padding-top: 30px;
+      text-align: center;
+      color: #a0aec0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .footer-bottom p {
+      margin-bottom: 10px;
+    }
+
+    /* Fade-in animation */
     .fade-in {
       animation: fadeIn 1s ease-in;
     }
@@ -78,27 +191,62 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 40px 20px;
+      }
+    }
   </style>
 </head>
 <body>
+  <main class="main-content">
+    <section id="contact" class="section contact fade-in">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <h3>Phone</h3>
+          <p>+254 722 287 000</p>
+          <p>+254 796 138 151</p>
+          <p>+254 789 866 353</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <h3>Email</h3>
+          <a href="mailto:info@quadplexus.com">info@quadplexus.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <section id="contact" class="section contact fade-in">
-    <h2>Contact Us</h2>
-    <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <h3>Phone</h3>
-        <p>+254 722 287 000</p>
-        <p>+254 796 138 151</p>
-        <p>+254 789 866 353</p>
+  <!-- Footer -->
+  <footer>
+
+      <div class="footer-section">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About us.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact us.html">Contact</a></li>
+        </ul>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <h3>Email</h3>
-        <a href="mailto:info@quadplexus.com">info@quadplexus.com</a>
-      </div>
+      
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Quad Plexus Ltd. All rights reserved.</p>
+      <p>Transforming East Africa through innovative IT solutions.</p>
     </div>
-  </section>
-
+  </footer>
 </body>
 </html>

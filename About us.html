@@ -260,6 +260,100 @@
       box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
     }
 
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #000, #1a202c);
+      color: white;
+      padding: 60px 0 20px;
+      margin-top: 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      color: #df7a43;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-section p,
+    .footer-section li {
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #df7a43;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+      width: 20px;
+      color: #df7a43;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #df7a43;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: #c5633a;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #2d3748;
+      padding-top: 30px;
+      text-align: center;
+      color: #a0aec0;
+    }
+
+    .footer-bottom p {
+      margin-bottom: 10px;
+    }
+
     /* Animations */
     .fade-in {
       opacity: 0;
@@ -295,6 +389,15 @@
       
       .cta {
         padding: 60px 0;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .social-links {
+        justify-content: center;
       }
     }
   </style>
@@ -362,9 +465,10 @@
         <div class="team-description">
           <p>Quad Plexus Ltd is a dynamic IT solutions company specializing in healthcare systems, business software, logistics solutions, and IT infrastructure. Our expertise spans across multiple industries, with a deep understanding of the unique challenges faced by businesses in East Africa.</p>
         </div>
+      </section>
+    </div>
+  </div>
 
-
-    
   <!-- Call to Action -->
   <section class="cta">
     <div class="container">
@@ -373,6 +477,58 @@
       <a href="contact us.html" class="btn">Get In Touch</a>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quad Plexus Ltd</h3>
+          <p>Empowering East Africa's digital transformation with innovative, cost-effective IT solutions that drive real business growth.</p>
+          <div class="social-links">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="LinkedIn">💼</a>
+            <a href="#" title="WhatsApp">📱</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact us.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <i>📍</i>
+            <p>Nairobi, Kenya</p>
+          </div>
+          <div class="contact-info">
+            <i>📞</i>
+            <p>+254 722 287 000</p>
+          </div>
+          <div class="contact-info">
+            <i>✉️</i>
+            <p>info@quadplexus.com</p>
+          </div>
+          <div class="contact-info">
+            <i>🌐</i>
+            <p>www.quadplexus.com</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Quad Plexus Ltd. All rights reserved.</p>
+        <p>Transforming East Africa through innovative IT solutions.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     // Add scroll animations

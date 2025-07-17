@@ -37,6 +37,8 @@
             width: 150px;
             height: auto;
             display: flex;
+            filter: contrast(150%) brightness(0%);
+            image-rendering: auto;
         }
 
         .nav-links {
@@ -387,4 +389,8 @@
             opacity: 1;
             transform: translateY(0);
         }
+        html {
+            scroll-behavior: smooth;
+        }
+
   
