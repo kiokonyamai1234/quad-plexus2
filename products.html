@@ -93,168 +93,392 @@
             }
         }
 
-         footer {
-            background: #000;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+        /* Header Styles */
+        .header-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #df7a43;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #df7a43, #ff8c42);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Footer Styles */
+        .footer-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        }
+
+        .social-hover {
+            transition: all 0.3s ease;
+        }
+
+        .social-hover:hover {
+            transform: translateY(-3px);
+            color: #df7a43;
+        }
+
+        .footer-link {
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #df7a43;
+            transform: translateX(5px);
         }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <!-- Hero Section -->
-    <section class="gradient-bg py-20 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 bg-black opacity-10"></div>
-        <div class="relative max-w-7xl mx-auto text-center text-black">
-            <div class="fade-in">
-                <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">
-                    QUAD PLEXUS
-                    <span class="block text-3xl md:text-4xl font-light opacity-90">PRODUCTS</span>
-                </h1>
-                <p class="text-xl md:text-2xl font-light opacity-90 max-w-3xl mx-auto leading-relaxed">
-                    Innovative business solutions designed to transform your operations and accelerate growth across East Africa
-                </p>
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 header-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">Q</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">QUAD PLEXUS</h1>
+                        <p class="text-xs text-gray-600">Business Solutions</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 font-medium">Home</a>
+                    <a href="#products" class="nav-link text-gray-700 font-medium">Products</a>
+                    <a href="services.html" class="nav-link text-gray-700 font-medium">Services</a>
+                    <a href="About us.html" class="nav-link text-gray-700 font-medium">About Us</a>
+                    <a href="contact us.html" class="nav-link text-gray-700 font-medium">Contact</a>
+                </nav>
+
+                <!-- CTA Button & Mobile Menu Toggle -->
+                <div class="flex items-center space-x-4">
+                    <a href="contact us.html" class="hidden sm:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300">
+                        Get Quote
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden menu-toggle flex flex-col justify-center items-center w-8 h-8 space-y-1">
+                        <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                        <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                        <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden mobile-menu absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg">
+                <div class="px-6 py-4 space-y-4">
+                    <a href="index.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Home</a>
+                    <a href="#products" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Products</a>
+                    <a href="services.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Services</a>
+                    <a href="About us.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">About</a>
+                    <a href="contact.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Contact</a>
+                    <a href="contact.html" class="block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg font-semibold text-center">
+                        Get Quote
+                    </a>
+                </div>
             </div>
         </div>
-        
-        <!-- Animated background elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full pulse-ring"></div>
-        <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full pulse-ring" style="animation-delay: 1s;"></div>
-    </section>
+    </header>
 
-    <!-- Products Section -->
-    <section id="products" class="py-20 px-6 relative">
-        <div class="max-w-7xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-black-800 mb-6">
-                    Our Solutions
-                </h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-black-600 to-black-600 mx-auto mb-6 rounded-full"></div>
-                <p class="text-lg text-black-600 max-w-2xl mx-auto leading-relaxed">
-                    Comprehensive technology solutions tailored for modern businesses across various industries
-                </p>
+    <!-- Add padding to account for fixed header -->
+    <div class="pt-20">
+        <!-- Hero Section -->
+        <section class="gradient-bg py-20 px-6 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative max-w-7xl mx-auto text-center text-black">
+                <div class="fade-in">
+                    <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                        OUR PRODUCTS
+                        <span class="block text-3xl md:text-4xl font-light opacity-90"></span>
+                    </h1>
+                    <p class="text-lg text-black-600 max-w-2xl mx-auto leading-relaxed">
+                        Comprehensive technology solutions tailored for modern businesses across various industries
+                    </p>
+                </div>
             </div>
             
-            <!-- Products Grid -->
-            <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+            <!-- Animated background elements -->
+            <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full pulse-ring"></div>
+            <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full pulse-ring" style="animation-delay: 1s;"></div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-20 px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-black-800 mb-6">
+                        Our Solutions
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-black-600 to-black-600 mx-auto mb-6 rounded-full"></div>
+                    
+                </div>
                 
-                <!-- Plexus Care Hospital Information System -->
-                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-1 group relative overflow-hidden">
-                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="text-6xl mb-6 ">🏥</div>
-                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
-                            Plexus Care Hospital Information System
-                        </h3>
-                        <p class="text-black-600 leading-relaxed mb-6">
-                            Comprehensive healthcare management solution designed for hospitals and medical facilities across East Africa.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Healthcare</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Management</span>
+                <!-- Products Grid -->
+                <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+                    
+                    <!-- Plexus Care Hospital Information System -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-1 group relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="text-6xl mb-6 ">🏥</div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                Plexus Care Hospital Information System
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Comprehensive healthcare management solution designed for hospitals and medical facilities across East Africa.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Healthcare</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Management</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
-                            Learn More
-                        </button>
+                    </div>
+
+                    <!-- Odoo ERP -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-2 group relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="text-6xl mb-6 " style="animation-delay: 0.5s;">⚙️</div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                Odoo ERP All-in-One Business Software
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Complete business management suite covering CRM, accounting, inventory, and more in one integrated platform.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">ERP</span>
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Business</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Logitude Freight Forwarding -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-3 group relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="text-6xl mb-6 " style="animation-delay: 1s;">🚚</div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                Logitude Freight Forwarding Software
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Streamline your logistics operations with our advanced freight forwarding and supply chain management system.
+                            </p>
+                            <br>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Logistics</span>
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Supply Chain</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- IT Infrastructure Solutions -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-4 group relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="text-6xl mb-6 " style="animation-delay: 1.5s;">💻</div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                IT Infrastructure Solutions
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Complete range of hardware including servers, laptops, UPS systems, and stabilizers for your business needs.
+                            </p>
+                            <br>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Hardware</span>
+                                <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Infrastructure</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="py-16 px-6 bg-gradient-to-r from-orange-700 to-orange-600 text-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h3>
+                <p class="text-lg opacity-90 mb-8 leading-relaxed">
+                    Contact us today to discover how our innovative solutions can drive your business forward
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                        Get Started
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
+                        <a href="contact us.html" class="cta-button">Contact Sales</a>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer-gradient text-white">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">Q</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">QUAD PLEXUS</h3>
+                            <p class="text-gray-400 text-sm">Business Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Transforming businesses across East Africa with innovative technology solutions and unparalleled expertise.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-hover text-gray-400 text-xl">📧</a>
+                        <a href="#" class="social-hover text-gray-400 text-xl">📱</a>
+                        <a href="#" class="social-hover text-gray-400 text-xl">💼</a>
+                        <a href="#" class="social-hover text-gray-400 text-xl">🌐</a>
                     </div>
                 </div>
 
-                <!-- Odoo ERP -->
-                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-2 group relative overflow-hidden">
-                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="text-6xl mb-6 " style="animation-delay: 0.5s;">⚙️</div>
-                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
-                            Odoo ERP All-in-One Business Software
-                        </h3>
-                        <p class="text-black-600 leading-relaxed mb-6">
-                            Complete business management suite covering CRM, accounting, inventory, and more in one integrated platform.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">ERP</span>
-                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Business</span>
-                        </div>
-                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-                            Learn More
-                        </button>
-                    </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="footer-link text-gray-300">Home</a></li>
+                        <li><a href="About us.html" class="footer-link text-gray-300">About Us</a></li>
+                        <li><a href="#products" class="footer-link text-gray-300">Products</a></li>
+                        <li><a href="services.html" class="footer-link text-gray-300">Services</a></li>
+                        <li><a href="contact.html" class="footer-link text-gray-300">Contact</a></li>
+                    </ul>
                 </div>
 
-                <!-- Logitude Freight Forwarding -->
-                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-3 group relative overflow-hidden">
-                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="text-6xl mb-6 " style="animation-delay: 1s;">🚚</div>
-                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
-                            Logitude Freight Forwarding Software
-                        </h3>
-                        <p class="text-black-600 leading-relaxed mb-6">
-                            Streamline your logistics operations with our advanced freight forwarding and supply chain management system.
-                        </p>
-                        <br>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Logistics</span>
-                            <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Supply Chain</span>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Get In Touch</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-orange-500 mt-1">📍</span>
+                            <div>
+                                <p class="text-gray-300">Nairobi, Kenya</p>
+                                <p class="text-gray-400 text-sm">East Africa</p>
+                            </div>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105">
-                            Learn More
-                        </button>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-orange-500">📞</span>
+                            <p class="text-gray-300">+254 722 511 662</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-orange-500">✉️</span>
+                            <p class="text-gray-300">info@quadplexus.com</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-orange-500">🕒</span>
+                            <div>
+                                <p class="text-gray-300 text-sm">Mon - Fri: 8:00 am - 4:00 pm</p>
+                                <p class="text-gray-400 text-sm">Sat: 9:00 am - 2:00 pm</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- IT Infrastructure Solutions -->
-                <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in stagger-4 group relative overflow-hidden">
-                    <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="text-6xl mb-6 " style="animation-delay: 1.5s;">💻</div>
-                        <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
-                            IT Infrastructure Solutions
-                        </h3>
-                        <p class="text-black-600 leading-relaxed mb-6">
-                            Complete range of hardware including servers, laptops, UPS systems, and stabilizers for your business needs.
-                        </p>
-                        <br>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Hardware</span>
-                            <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Infrastructure</span>
-                        </div>
-                        <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Quad Plexus Ltd. All rights reserved.
+                </p>
+               
             </div>
         </div>
-    </section>
 
-    <!-- Call to Action Section -->
-    <section class="py-16 px-6 bg-gradient-to-r from-orange-700 to-orange-600 text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h3>
-            <p class="text-lg opacity-90 mb-8 leading-relaxed">
-                Contact us today to discover how our innovative solutions can drive your business forward
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-                    Get Started
-                </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
-                    <a href="contact us.html" class="cta-button">Contact Sales</a>
-                </button>
-            </div>
+        <!-- Back to Top Button -->
+        <div class="fixed bottom-8 right-8 z-40">
+            <button id="backToTop" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible">
+                ↑
+            </button>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Quad Plexus Ltd. All rights reserved.</p>
     </footer>
 
     <script>
-        // Add some interactive behavior
+        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('header')) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
             // Intersection Observer for animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -266,6 +490,44 @@
 
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.opacity = '1';
+                    backToTop.style.visibility = 'visible';
+                } else {
+                    backToTop.style.opacity = '0';
+                    backToTop.style.visibility = 'invisible';
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
 
             // Add click handlers for Learn More buttons
@@ -281,6 +543,16 @@
                         // You can add actual navigation logic here
                         console.log('Learn more clicked for:', this.closest('.group').querySelector('h3').textContent);
                     });
+                }
+            });
+
+            // Header background on scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
                 }
             });
         });

@@ -13,7 +13,7 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #777777 0%, #777777 100%);
       color: black;
       line-height: 1.7;
       overflow-x: hidden;
@@ -25,13 +25,118 @@
       padding: 0 20px;
     }
 
+    /* Header Styles */
+    header {
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #df7a43;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #df7a43, #c5633a);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #df7a43;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #df7a43;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #df7a43, #c5633a);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(223, 122, 67, 0.3);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(223, 122, 67, 0.4);
+    }
+
     /* Hero Section */
     .hero {
       background-color: #df7a43;
-      padding: 80px 0;
+      padding: 120px 0 80px;
       text-align: center;
       color: black;
       position: relative;
+      margin-top: 70px;
     }
 
     .hero::before {
@@ -246,47 +351,69 @@
     .btn {
       display: inline-block;
       padding: 15px 30px;
-      background: linear-gradient(135deg, #777777, #edf2f7);
+      background: linear-gradient(135deg, #df7a43, #c5633a);
       color: white;
       text-decoration: none;
       border-radius: 50px;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 10px 30px rgba(223, 122, 67, 0.3);
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 15px 40px rgba(223, 122, 67, 0.4);
     }
 
-    /* Footer Styles */
+    /* Enhanced Footer Styles */
     footer {
       background: linear-gradient(135deg, #000, #1a202c);
       color: white;
-      padding: 60px 0 20px;
+      padding: 80px 0 30px;
       margin-top: 0;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #df7a43, transparent);
     }
 
     .footer-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 50px;
+      margin-bottom: 50px;
     }
 
     .footer-section h3 {
       color: #df7a43;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+      font-size: 1.4rem;
+      margin-bottom: 25px;
       font-weight: 600;
+      position: relative;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #df7a43;
     }
 
     .footer-section p,
     .footer-section li {
       color: #e2e8f0;
-      line-height: 1.6;
-      margin-bottom: 10px;
+      line-height: 1.7;
+      margin-bottom: 12px;
     }
 
     .footer-section ul {
@@ -294,7 +421,12 @@
     }
 
     .footer-section ul li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section ul li:hover {
+      transform: translateX(5px);
     }
 
     .footer-section a {
@@ -310,37 +442,106 @@
     .contact-info {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info:hover {
+      transform: translateX(5px);
     }
 
     .contact-info i {
-      margin-right: 10px;
+      margin-right: 15px;
       width: 20px;
       color: #df7a43;
+      font-size: 1.1rem;
     }
 
     .social-links {
       display: flex;
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .social-links a {
       display: inline-block;
-      width: 40px;
-      height: 40px;
-      background-color: #df7a43;
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #df7a43, #c5633a);
       color: white;
       border-radius: 50%;
       text-align: center;
-      line-height: 40px;
-      font-size: 1.2rem;
+      line-height: 45px;
+      font-size: 1.3rem;
       transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(223, 122, 67, 0.3);
     }
 
     .social-links a:hover {
-      background-color: #c5633a;
+      background: linear-gradient(135deg, #c5633a, #a0502d);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(223, 122, 67, 0.4);
+    }
+
+    .newsletter {
+      background: rgba(223, 122, 67, 0.1);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(223, 122, 67, 0.2);
+    }
+
+    .newsletter h4 {
+      color: #df7a43;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      color: #cbd5e0;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .newsletter-form input::placeholder {
+      color: #a0aec0;
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: #df7a43;
+      box-shadow: 0 0 0 3px rgba(223, 122, 67, 0.1);
+    }
+
+    .newsletter-form button {
+      background: linear-gradient(135deg, #df7a43, #c5633a);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
       transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(223, 122, 67, 0.3);
     }
 
     .footer-bottom {
@@ -350,8 +551,29 @@
       color: #a0aec0;
     }
 
-    .footer-bottom p {
-      margin-bottom: 10px;
+    .footer-bottom-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #df7a43;
     }
 
     /* Animations */
@@ -374,8 +596,16 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
       .hero {
-        padding: 60px 0;
+        padding: 100px 0 60px;
       }
       
       .section {
@@ -393,21 +623,67 @@
 
       .footer-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 40px;
+      }
+
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
       }
 
       .social-links {
         justify-content: center;
       }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .newsletter-form {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 15px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <div class="logo-icon"> Q </div>
+          Quad Plexus
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact us.html" class="cta-btn">Contact Us</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+      </nav>
+    </div>
+  </header>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>Quad Plexus Ltd</h1>
-      <p>Empowering East Africa's digital transformation with innovative, cost-effective IT solutions that drive real business growth.</p>
+      <h1>Who are we</h1>
+      
     </div>
   </section>
 
@@ -474,63 +750,99 @@
     <div class="container">
       <h2>Ready to Transform Your Business?</h2>
       <p>Let's discuss how our tailored IT solutions can drive your business forward.</p>
-      <a href="contact us.html" class="btn">Get In Touch</a>
+      <a href="contact.html" class="btn">Get In Touch</a>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Enhanced Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
           <h3>Quad Plexus Ltd</h3>
-          <p>Empowering East Africa's digital transformation with innovative, cost-effective IT solutions that drive real business growth.</p>
+          <p>We are East Africa's premier IT solutions provider, specializing in healthcare systems, business software, and digital transformation. Our mission is to empower businesses with innovative, cost-effective technology solutions.</p>
           <div class="social-links">
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="Twitter">🐦</a>
-            <a href="#" title="LinkedIn">💼</a>
-            <a href="#" title="WhatsApp">📱</a>
+            <a href="#" title="Facebook" aria-label="Facebook">📘</a>
+            <a href="#" title="Twitter" aria-label="Twitter">🐦</a>
+            <a href="#" title="LinkedIn" aria-label="LinkedIn">💼</a>
+            <a href="#" title="WhatsApp" aria-label="WhatsApp">📱</a>
+            <a href="#" title="Instagram" aria-label="Instagram">📸</a>
           </div>
         </div>
+        
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="contact us.html">Contact</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="careers.html">Careers</a></li>
           </ul>
         </div>
         
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div class="contact-info">
-            <i>📍</i>
-            <p>Nairobi, Kenya</p>
-          </div>
-          <div class="contact-info">
-            <i>📞</i>
-            <p>+254 722 287 000</p>
-          </div>
-          <div class="contact-info">
-            <i>✉️</i>
-            <p>info@quadplexus.com</p>
-          </div>
-          <div class="contact-info">
-            <i>🌐</i>
-            <p>www.quadplexus.com</p>
+          <div class="newsletter">
+            <h4>Newsletter</h4>
+            <p>Stay updated with our latest solutions and insights.</p>
+            <form class="newsletter-form" onsubmit="return false;">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit">Subscribe</button>
+            </form>
           </div>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2025 Quad Plexus Ltd. All rights reserved.</p>
-        <p>Transforming East Africa through innovative IT solutions.</p>
+        <div class="footer-bottom-content">
+          <p>&copy; 2025 Quad Plexus Ltd. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+       
       </div>
     </div>
   </footer>
 
   <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(0, 0, 0, 0.98)';
+        header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.2)';
+      } else {
+        header.style.background = 'rgba(0, 0, 0, 0.95)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+      }
+    });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', function() {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Newsletter form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        if (email) {
+          alert('Thank you for subscribing! We\'ll keep you updated with our latest news and insights.');
+          this.querySelector('input[type="email"]').value = '';
+        }
+      });
+    }
+
     // Add scroll animations
     const observerOptions = {
       threshold: 0.1,
