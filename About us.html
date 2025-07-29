@@ -10,6 +10,30 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
+    .pulse-ring {
+  width: 150px;
+  height: 150px;
+  border-radius: 9999px;
+  background-color: rgba(59, 130, 246, 0.3); /* blue-500 with opacity */
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -292,6 +316,7 @@
     .team {
       text-align: center;
       padding: 60px 0;
+      font-weight: bolder;
     }
 
     .team-description {
@@ -658,21 +683,23 @@
   </style>
 </head>
 <body>
+ 
+
+</div>
+
   <!-- Header -->
   <header>
     <div class="container">
       <nav>
-        <a href="index.html" class="logo">
-          <div class="logo-icon"> Q </div>
+        <a href="Home.html" class="logo">
           Quad Plexus
         </a>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="Home.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="products.html">Products</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact us.html" class="cta-btn">Contact Us</a></li>
+        
         </ul>
         <button class="mobile-menu-btn">☰</button>
       </nav>
@@ -683,7 +710,13 @@
   <section class="hero">
     <div class="container">
       <h1>Who are we</h1>
-      
+      <div class="team-description">
+          <p>Quad Plexus Ltd is a dynamic IT solutions company specializing in healthcare systems, business software, logistics solutions, and IT infrastructure. Our expertise spans across multiple industries, with a deep understanding of the unique challenges faced by businesses in East Africa.</p>
+        </div>
+          <!-- Pulse Ring -->
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div class="pulse-ring"></div>
+    </div>
     </div>
   </section>
 
@@ -737,9 +770,8 @@
 
       <!-- About Section -->
       <section class="section team">
-        <h2 class="section-title">Who We Are</h2>
         <div class="team-description">
-          <p>Quad Plexus Ltd is a dynamic IT solutions company specializing in healthcare systems, business software, logistics solutions, and IT infrastructure. Our expertise spans across multiple industries, with a deep understanding of the unique challenges faced by businesses in East Africa.</p>
+          <p>Quad Plexus, Your Trusted Partner in Smart IT Solutions.</p>
         </div>
       </section>
     </div>
@@ -760,7 +792,7 @@
       <div class="footer-content">
         <div class="footer-section">
           <h3>Quad Plexus Ltd</h3>
-          <p>We are East Africa's premier IT solutions provider, specializing in healthcare systems, business software, and digital transformation. Our mission is to empower businesses with innovative, cost-effective technology solutions.</p>
+          <p> Our mission is to empower businesses with innovative, cost-effective technology solutions.</p>
           <div class="social-links">
             <a href="#" title="Facebook" aria-label="Facebook">📘</a>
             <a href="#" title="Twitter" aria-label="Twitter">🐦</a>
@@ -770,19 +802,7 @@
           </div>
         </div>
         
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="careers.html">Careers</a></li>
-          </ul>
-        </div>
-        
+
           <div class="newsletter">
             <h4>Newsletter</h4>
             <p>Stay updated with our latest solutions and insights.</p>
@@ -800,7 +820,7 @@
           <ul class="footer-links">
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="cookies.html">Cookies Policy</a></li>
             <li><a href="sitemap.html">Sitemap</a></li>
           </ul>
         </div>
