@@ -16,6 +16,77 @@
       flex-direction: column;
     }
 
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #000, #1a202c);
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #df7a43;
+      text-decoration: none;
+    }
+
+    .nav-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 40px;
+    }
+
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #df7a43;
+      background-color: rgba(223, 122, 67, 0.1);
+    }
+
+    nav a.active {
+      color: #df7a43;
+      background-color: rgba(223, 122, 67, 0.2);
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #e2e8f0;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
     .main-content {
       flex: 1;
     }
@@ -194,6 +265,37 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-container {
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      .nav-container {
+        display: none;
+        width: 100%;
+      }
+
+      .nav-container.active {
+        display: block;
+      }
+
       .footer-content {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -210,6 +312,25 @@
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">Quadplexus</a>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <div class="nav-container" id="navContainer">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About us.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="/contact" class="active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
   <main class="main-content">
     <section id="contact" class="section contact fade-in">
       <h2>Contact Us</h2>
@@ -232,14 +353,16 @@
 
   <!-- Footer -->
   <footer>
-
-      <div class="footer-section">
-      </div>
-    
     <div class="footer-bottom">
       <p>&copy; 2025 Quad Plexus Ltd. All rights reserved.</p>
-      <p>Transforming East Africa through innovative IT solutions.</p>
     </div>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const navContainer = document.getElementById('navContainer');
+      navContainer.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

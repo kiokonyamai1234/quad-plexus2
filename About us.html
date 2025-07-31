@@ -13,7 +13,7 @@
     
     .pulse-ring {
   width: 150px;
-  height: 150px;
+  height: 1px;
   border-radius: 9999px;
   background-color: rgba(59, 130, 246, 0.3); /* blue-500 with opacity */
   animation: pulse 2s infinite;
@@ -64,12 +64,15 @@
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 15px 0;
+      position: relative;
     }
 
     .logo {
+      position: absolute;
+      left: 0;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -135,6 +138,8 @@
       color: white;
       font-size: 1.5rem;
       cursor: pointer;
+      position: absolute;
+      right: 0;
     }
 
     .cta-btn {
@@ -156,7 +161,7 @@
     /* Hero Section */
     .hero {
       background-color: #df7a43;
-      padding: 120px 0 80px;
+      padding: 80px 0 60px;
       text-align: center;
       color: black;
       position: relative;
@@ -579,7 +584,7 @@
     .footer-bottom-content {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items:center;
       flex-wrap: wrap;
       gap: 20px;
     }
@@ -621,12 +626,33 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
+      nav {
+        justify-content: space-between;
+      }
+
+      .logo {
+        position: static;
+      }
+
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
       }
 
       .mobile-menu-btn {
         display: block;
+        position: static;
       }
 
       .hero {
@@ -673,6 +699,7 @@
       .newsletter-form {
         flex-direction: column;
         gap: 15px;
+        
       }
 
       .footer-links {
@@ -692,13 +719,16 @@
     <div class="container">
       <nav>
         <a href="index.html" class="logo">
-          <div></div>
+        
+          Quad Plexus
         </a>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="products.html">Products</a></li>
+          
+          <li><a href="contact us.html" class="cta-btn">Contact Us</a></li>
         </ul>
         <button class="mobile-menu-btn">☰</button>
       </nav>
@@ -708,9 +738,9 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>Who are we</h1>
+      <h1>Who We Are</h1>
       <div class="team-description">
-          <p> Our expertise spans across multiple industries, with a deep understanding of the unique challenges faced by businesses in East Africa.</p>
+          <p>Quad Plexus Ltd is a dynamic IT solutions company specializing in healthcare systems, business software, logistics solutions, and IT infrastructure. Our expertise spans across multiple industries, with a deep understanding of the unique challenges faced by businesses in East Africa.</p>
         </div>
           <!-- Pulse Ring -->
     <div class="absolute inset-0 flex items-center justify-center">
@@ -791,15 +821,8 @@
       <div class="footer-content">
         <div class="footer-section">
           <h3>Quad Plexus Ltd</h3>
-          <p>Our mission is to empower businesses with innovative, cost-effective technology solutions.</p>
-          <div class="social-links">
-            <a href="#" title="Facebook" aria-label="Facebook">📘</a>
-            <a href="#" title="Twitter" aria-label="Twitter">🐦</a>
-            <a href="#" title="LinkedIn" aria-label="LinkedIn">💼</a>
-            <a href="#" title="WhatsApp" aria-label="WhatsApp">📱</a>
-            <a href="#" title="Instagram" aria-label="Instagram">📸</a>
-          </div>
-        </div>
+          <p> Our mission is to empower businesses with innovative, cost-effective technology solutions.</p>
+          
         
 
           <div class="newsletter">
@@ -846,7 +869,7 @@
     const navLinks = document.querySelector('.nav-links');
 
     mobileMenuBtn.addEventListener('click', function() {
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      navLinks.classList.toggle('active');
     });
 
     // Newsletter form
