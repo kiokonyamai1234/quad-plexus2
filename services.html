@@ -57,7 +57,7 @@
 
         /* Header Styles */
         .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             position: relative;
             overflow: hidden;
@@ -85,7 +85,7 @@
 
         .nav-link {
             position: relative;
-            color: #e5e5e5;
+            color: black;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -402,15 +402,17 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="products.html" class="nav-link">About Us</a>
-                    <a href="About us.html" class="nav-link">Products</a>
+                    <a href="About us.html" class="nav-link">About Us</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    
                     <a href="services.html" class="nav-link active">Services</a>
+                    <a href="contact us.html" class="nav-link">Contact Us</a>
                 </div>
 
                 <!-- CTA Button -->
                 <div class="hidden md:block">
                     <a href="contact us.html" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/25">
-                        Get Started
+                        Get Quote
                     </a>
                 </div>
 
@@ -426,14 +428,14 @@
             <div class="md:hidden mt-4 mobile-menu p-6 hidden" id="mobile-menu">
                 <div class="flex flex-col space-y-3">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="products.html" class="nav-link">Products</a>
                     <a href="About us.html" class="nav-link">About Us</a>
-                    <a href="services.html" class="nav-link active">Services</a>
-                    <a href="contact us.html" class="nav-link">Contact</a>
-                    <a href="contact us.html" class="nav-link text-gray-700 font-medium">Contact</a>
+                    <a href="products.html" class="nav-link active">Products</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="contact us.html" class="nav-link">Contact Us</a>
+
                     <div class="pt-6 border-t border-gray-600">
                         <a href="contact us.html" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-xl font-semibold block text-center transform transition-all duration-300 hover:scale-105">
-                            Get Started
+                            Get Quote
                         </a>
                     </div>
                 </div>
@@ -466,10 +468,8 @@
                 <!-- IT Consulting -->
                 <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-1">
                     <div class="service-card-content">
-                        <div class="service-icon text-3xl mb-8">
-                             <div class="service-icon text-3xl mb-8">
-                                <img src="images/IT.jpg" alt="Technical Support Icon" class="w-24 h- object-contain mx-auto" />
-                             </div>   
+                        <div class="mb-8 flex justify-center">
+                            <img src="images/IT.jpg" alt="IT Consulting Icon" class="w-24 h-24 object-contain" />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">
                             IT Consulting
@@ -482,7 +482,6 @@
                             <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
- 
                         </div>
                     </div>
                 </div>
@@ -490,10 +489,8 @@
                 <!-- System Integration -->
                 <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-2">
                     <div class="service-card-content">
-                        <div class="service-icon text-3xl mb-8">
-                             <div class="service-icon text-3xl mb-8">
-                                <img src="images/icon 8 (2).png" alt="Technical Support Icon" class="w-24 h-20 object-contain mx-auto" />
-                             </div>  
+                        <div class="mb-8 flex justify-center">
+                            <img src="images/icon 8.png" alt="System Integration Icon" class="w-24 h-24 object-contain" />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">
                             System Integration
@@ -513,10 +510,8 @@
                 <!-- Network Solutions -->
                 <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-3">
                     <div class="service-card-content">
-                        <div class="service-icon text-3xl mb-8">
-                             <div class="service-icon text-3xl mb-8">
-                                <img src="images/networksolutions.jpg" alt="Technical Support Icon" class="w-24 h-20 object-contain mx-auto" />
-                             </div>  
+                        <div class="mb-8 flex justify-center">
+                            <img src="images/networksolutions.jpg" alt="Network Solutions Icon" class="w-24 h-24 object-contain" />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">
                             Network Solutions
@@ -536,10 +531,8 @@
                 <!-- IT Security -->
                 <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-4">
                     <div class="service-card-content">
-                        <div class="service-icon text-3xl mb-8">
-                             <div class="service-icon text-3xl mb-8">
-                                <img src="images/icon 11.png" alt="Technical Support Icon" class="w-24 h-20 object-contain mx-auto" />
-                             </div>  
+                        <div class="mb-8 flex justify-center">
+                            <img src="images/icon7.png" alt="IT Security Icon" class="w-24 h-24 object-contain" />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">
                             IT Security
@@ -559,10 +552,8 @@
                 <!-- Asset Management -->
                 <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-5">
                     <div class="service-card-content">
-                        <div class="service-icon text-3xl mb-8">
-                             <div class="service-icon text-3xl mb-8">
-                                <img src="images/icon 10.png" alt="Technical Support Icon" class="w-24 h-20 object-contain mx-auto" />
-                             </div>  
+                        <div class="mb-8 flex justify-center">
+                            <img src="images/icon9.png" alt="Asset Management Icon" class="w-24 h-24 object-contain" />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">
                             Asset Management
@@ -582,10 +573,8 @@
                 <!-- Technical Support -->
                 <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-6">
                     <div class="service-card-content">
-                        <div class="service-icon text-3xl mb-8">
-                             <div class="service-icon text-3xl mb-8">
-                                <img src="images/techsupport.jpg" alt="Technical Support Icon" class="w-24 h-20 object-contain mx-auto" />
-                             </div>  
+                        <div class="mb-8 flex justify-center">
+                            <img src="images/techsupport.jpg" alt="Technical Support Icon" class="w-24 h-24 object-contain" />
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">
                             Technical Support
@@ -609,7 +598,7 @@
     <!-- Contact CTA Section -->
     <section class="cta-section py-20 px-6 gradient-bg text-white relative">
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <h3 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">Ready to Elevate Your IT Infrastructure?</h3>
+            <h3 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">Ready to Elevate Your IT Infrastructure?</h3>
             <p class="text-xl opacity-90 mb-12 leading-relaxed max-w-3xl mx-auto">
                 Let our expert team transform your technology landscape and drive your business forward
             </p>
@@ -637,11 +626,11 @@
             <!-- Footer Bottom -->
             <div class="footer-bottom pt-8 mt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center text-gray-400">
-                    <p class="text-center md:text-left mb-4 md:mb-0">&copy; 2025 Quad Plexus. All rights reserved.</p>
+                    <p class="text-center md:text-left mb-4 md:mb-0">&copy; 2024 QUAD PLEX. All rights reserved.</p>
                     <div class="flex flex-wrap justify-center md:justify-end space-x-6">
                         <a href="#" class="footer-link hover:text-orange-500 py-2">Privacy Policy</a>
                         <a href="#" class="footer-link hover:text-orange-500 py-2">Terms of Service</a>
-                        <a href="#" class="footer-link hover:text-orange-500 py-2">Cookies Policy</a>
+                        <a href="#" class="footer-link hover:text-orange-500 py-2">cookies Policy</a>
                     </div>
                 </div>
             </div>
@@ -694,10 +683,10 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%)';
+                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%)';
                 header.style.backdropFilter = 'blur(15px)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
+                header.style.background = 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)';
                 header.style.backdropFilter = 'blur(10px)';
             }
         });
