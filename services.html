@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUAD PLEX Services - Expert IT Solutions</title>
+    <title>QUAD PLEXUS Services - Expert IT Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -12,748 +12,499 @@
         }
         
         .gradient-bg {
-            background: linear-gradient(135deg, #777777 0%, #555555 100%);
+            background: linear-gradient(135deg, #df7a43 0%, #df7a43 100%);
         }
         
-        .service-card {
-            background: linear-gradient(145deg, #df7a43 0%, #df7a43 100%);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .card-gradient {
+            background: linear-gradient(145deg, #777777 0%, #777777 100%);
         }
         
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
-        .service-icon {
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 1rem;
+        
+        .hover-lift:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+        
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glass-effect {
             backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        /* Pulse Ring Animation */
+        
         .pulse-ring {
-            animation: pulse-ring 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
         }
-
-        @keyframes pulse-ring {
+        
+        @keyframes pulseRing {
             0% {
-                transform: scale(0.33);
-                opacity: 0.8;
+                transform: scale(0.8);
+                opacity: 1;
             }
-            80%, 100% {
-                transform: scale(2.4);
+            100% {
+                transform: scale(1.4);
                 opacity: 0;
             }
         }
 
         /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+        .header-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #df7a43, transparent);
+        .menu-toggle {
+            transition: all 0.3s ease;
         }
 
-        .logo {
-            background: linear-gradient(135deg, #df7a43 0%, #ff8c42 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-            font-size: 1.75rem;
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
         }
 
         .nav-link {
             position: relative;
-            color: black;
-            text-decoration: none;
-            font-weight: 500;
             transition: all 0.3s ease;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.75rem;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #df7a43, #ff8c42);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
         }
 
         .nav-link:hover {
-            color: #df7a43;
-            background: rgba(223, 122, 67, 0.1);
-            transform: translateY(-2px);
+            color:black;
         }
 
-        .nav-link:hover::before {
-            width: 80%;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: black;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .nav-link.active {
-            color: #df7a43;
-            background: rgba(223, 122, 67, 0.15);
+            color: black;
         }
 
-        .nav-link.active::before {
-            width: 80%;
+        .nav-link.active::after {
+            width: 100%;
         }
 
-        .mobile-menu-btn {
-            background: transparent;
-            border: none;
-            color: #e5e5e5;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
+        /* Footer Styles */
+        .footer-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        }
+
+        .social-hover {
             transition: all 0.3s ease;
         }
 
-        .mobile-menu-btn:hover {
-            background: rgba(223, 122, 67, 0.1);
+        .social-hover:hover {
+            transform: translateY(-3px);
             color: #df7a43;
-            transform: scale(1.05);
-        }
-
-        .mobile-menu {
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(223, 122, 67, 0.2);
-            border-radius: 1rem;
-        }
-
-        /* Enhanced Section Styling */
-        .services-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: fixed;
-        }
-
-        .services-section::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(223,122,67,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            pointer-events: none;
-        }
-
-        .section-header {
-            position: relative;
-            z-index: 10;
-        }
-
-        .section-title {
-            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .title-underline {
-            background: linear-gradient(90deg, #df7a43, #ff8c42);
-            height: 4px;
-            border-radius: 2px;
-            position: relative;
-        }
-
-        .title-underline::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -10px;
-            width: 0;
-            height: 0;
-            border-left: 8px solid #ff8c42;
-            border-top: 4px solid transparent;
-            border-bottom: 4px solid transparent;
-            transform: translateY(-50%);
-        }
-
-        /* Enhanced Service Cards */
-        .services-grid {
-            position: relative;
-            z-index: 10;
-        }
-
-        .service-card-content {
-            height: 100%;
-            display: fixed;
-            flex-direction: column;
-        }
-
-        .service-description {
-            margin-bottom: 1.5rem;
-        }
-
-        .learn-more-link {
-            margin-top: auto;
-        }
-
-        /* CTA Section Enhancement */
-        .cta-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.06)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .cta-button-primary {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            color: #df7a43;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button-primary:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-        }
-
-        .cta-button-secondary {
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #ffffff;
-            transform: translateY(-3px) scale(1.05);
-        }
-
-        /* Footer Enhancement */
-        .footer {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-            color: #e5e5e5;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #df7a43, transparent);
-        }
-
-        .footer-section h4 {
-            color: #df7a43;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
         }
 
         .footer-link {
-            color: #b5b5b5;
-            text-decoration: none;
             transition: all 0.3s ease;
-            display: block;
-            padding: 0.5rem 0;
-            border-radius: 0.25rem;
         }
 
         .footer-link:hover {
             color: #df7a43;
-            transform: translateX(8px);
-            background: rgba(223, 122, 67, 0.05);
-            padding-left: 0.5rem;
+            transform: translateX(5px);
         }
 
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            background: rgba(223, 122, 67, 0.1);
-            border: 1px solid rgba(223, 122, 67, 0.3);
-            border-radius: 0.75rem;
-            color: #df7a43;
-            text-decoration: none;
+        /* Service Image Styles */
+        .service-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
             transition: all 0.3s ease;
-            margin: 0.25rem;
         }
 
-        .social-icon:hover {
-            background: #df7a43;
-            color: white;
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(223, 122, 67, 0.4);
+        .service-image:hover {
+            transform: scale(1.1);
         }
 
-         .footer-bottom {
-            border-top: 1px solid #333;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            text-align: center;
-            color: #999;
+        .image-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 8px;
+            display: inline-block;
+            transition: all 0.3s ease;
         }
 
-        /* Responsive Improvements */
-        @media (max-width: 768px) {
-            .service-card {
-                margin-bottom: 1.5rem;
-            }
+        .image-container:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Logo Styles */
+        .logo-image {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
             
-            .services-grid {
-                gap: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .pulse-ring {
-                width: 60px !important;
-                height: 60px !important;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading Animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(223, 122, 67, 0.3);
-            border-top: 4px solid #df7a43;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    
-  
     <!-- Header -->
-    <header class="header sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-6 py-4">
+    <header class="fixed w-full top-0 z-50 header-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index.html" class="logo">
-                     Quad Plexus
-                </a>
+                <div class="flex items-center space-x-3">
+                    <div class="w-20 h-20 ">
+                        <!-- Replace this div with an img tag when you have your logo -->
+                        <img src="images/Qp-removebg.png" alt="Quad Plexus Logo" class="logo-image"> 
+                       
+                    </div>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-1">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="About us.html" class="nav-link">About Us</a>
-                    <a href="products.html" class="nav-link">Products</a>
-                    
-                    <a href="services.html" class="nav-link active">Services</a>
-                    <a href="contact us.html" class="nav-link">Contact Us</a>
                 </div>
 
-                <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <a href="contact us.html" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/25">
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 font-medium">Home</a>
+                    <a href="About us.html" class="nav-link text-gray-700 font-medium">About Us</a>
+                    <a href="products.html" class="nav-link text-gray-700 font-medium">Products</a>
+                    <a href="services.html" class="nav-link text-gray-700 font-medium active">Services</a>
+                    <a href="contact us.html" class="nav-link text-gray-700 font-medium">Contact</a>
+                </nav>
+
+                
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden menu-toggle flex flex-col justify-center items-center w-8 h-8 space-y-1">
+                        <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                        <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                        <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden mobile-menu absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg">
+                <div class="px-6 py-4 space-y-4">
+                    <a href="index.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Home</a>
+                    <a href="About us.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">About Us</a>
+                    <a href="products.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Products</a>
+                    <a href="services.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Services</a>
+                    <a href="contact us.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Contact</a>
+                    <a href="contact us.html" class="block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg font-semibold text-center">
                         Get Quote
                     </a>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-btn md:hidden" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
             </div>
-
-            <!-- Mobile Navigation -->
-            <div class="md:hidden mt-4 mobile-menu p-6 hidden" id="mobile-menu">
-                <div class="flex flex-col space-y-3">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="About us.html" class="nav-link">About Us</a>
-                    <a href="products.html" class="nav-link active">Products</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="contact us.html" class="nav-link">Contact Us</a>
-
-                    <div class="pt-6 border-t border-gray-600">
-                        <a href="contact us.html" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-xl font-semibold block text-center transform transition-all duration-300 hover:scale-105">
-                            Get Quote
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section py-24 px-6 relative overflow-hidden">
-        <!-- Animated background elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full pulse-ring"></div>
-        <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full pulse-ring" style="animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-orange-400 opacity-5 rounded-full pulse-ring" style="animation-delay: 2s;"></div>
-        
-        <div class="max-w-7xl mx-auto relative">
-            <!-- Section Header -->
-            <div class="section-header text-center mb-20 fade-in">
-                <h2 class="section-title text-5xl md:text-6xl font-bold mb-8">
-                    Our Services
-                </h2>
-                <div class="title-underline w-32 mx-auto mb-8"></div>
-                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    We offer comprehensive IT services to enhance your business operations and drive digital transformation across East Africa
-                </p>
+    <!-- Add padding to account for fixed header -->
+    <div class="pt-20">
+        <!-- Hero Section -->
+        <section class="gradient-bg py-20 px-6 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative max-w-7xl mx-auto text-center text-black">
+                <div class="fade-in">
+                    <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                        Our Services
+                        <span class="block text-3xl md:text-4xl font-light opacity-90"></span>
+                    </h1>
+                    <p class="text-lg text-black-600 max-w-2xl mx-auto leading-relaxed">
+                        Comprehensive IT services to enhance your business operations and drive digital transformation across East Africa
+                    </p>
+                </div>
             </div>
             
-            <!-- Services Grid -->
-            <div class="services-grid grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-20">
-                
-                <!-- IT Consulting -->
-                <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-1">
-                    <div class="service-card-content">
-                        <div class="mb-8 flex justify-center">
-                            <img src="images/IT.jpg" alt="IT Consulting Icon" class="w-24 h-24 object-contain" />
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                            IT Consulting
-                        </h3>
-                        <p class="service-description text-gray-700 leading-relaxed text-lg">
-                            Strategic technology guidance to align your IT infrastructure with business objectives and maximize efficiency.
-                        </p>
-                        <div class="learn-more-link flex items-center text-gray-700 font-semibold">
-                            <span>Learn more</span>
-                            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+            <!-- Animated background elements -->
+            <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full pulse-ring"></div>
+            <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full pulse-ring" style="animation-delay: 1s;"></div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <!-- Services Grid -->
+                <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                    
+                    <!-- IT Consulting -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="image-container mb-6">
+                                <img src="images/IT.jpg" 
+                                     alt="IT Consulting" 
+                                     class="service-image">
+                            </div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                IT Consulting
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Strategic technology guidance to align your IT infrastructure with business objectives and maximize efficiency.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Strategy</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Consulting</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- System Integration -->
-                <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-2">
-                    <div class="service-card-content">
-                        <div class="mb-8 flex justify-center">
-                            <img src="images/icon 8.png" alt="System Integration Icon" class="w-24 h-24 object-contain" />
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                            System Integration
-                        </h3>
-                        <p class="service-description text-gray-700 leading-relaxed text-lg">
-                            Seamlessly connect disparate systems and applications to create unified, efficient business processes.
-                        </p>
-                        <div class="learn-more-link flex items-center text-gray-700 font-semibold">
-                            <span>Learn more</span>
-                            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                    <!-- System Integration -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="image-container mb-6">
+                                <img src="images/systemintegration.jpg" 
+                                     alt="System Integration" 
+                                     class="service-image">
+                            </div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                System Integration
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Seamlessly connect disparate systems and applications to create unified, efficient business processes.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Integration</span>
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Systems</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Network Solutions -->
-                <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-3">
-                    <div class="service-card-content">
-                        <div class="mb-8 flex justify-center">
-                            <img src="images/networksolutions.jpg" alt="Network Solutions Icon" class="w-24 h-24 object-contain" />
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                            Network Solutions
-                        </h3>
-                        <p class="service-description text-gray-700 leading-relaxed text-lg">
-                            Design, implement, and maintain robust network infrastructure for optimal connectivity and performance.
-                        </p>
-                        <div class="learn-more-link flex items-center text-gray-700 font-semibold">
-                            <span>Learn more</span>
-                            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                    <!-- Network Solutions -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="image-container mb-6">
+                                <img src="images/networksolutions.jpg" 
+                                     alt="Network Solutions" 
+                                     class="service-image">
+                            </div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                Network Solutions
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Design, implement, and maintain robust network infrastructure for optimal connectivity and performance.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Network</span>
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Infrastructure</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- IT Security -->
-                <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-4">
-                    <div class="service-card-content">
-                        <div class="mb-8 flex justify-center">
-                            <img src="images/icon7.png" alt="IT Security Icon" class="w-24 h-24 object-contain" />
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                            IT Security
-                        </h3>
-                        <p class="service-description text-gray-700 leading-relaxed text-lg">
-                            Comprehensive cybersecurity solutions to protect your digital assets and ensure business continuity.
-                        </p>
-                        <div class="learn-more-link flex items-center text-gray-700 font-semibold">
-                            <span>Learn more</span>
-                            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                    <!-- IT Security -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="image-container mb-6">
+                                <img src="images/ITsecurity.jpg" 
+                                     alt="IT Security" 
+                                     class="service-image">
+                            </div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                IT Security
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Comprehensive cybersecurity solutions to protect your digital assets and ensure business continuity.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Security</span>
+                                <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Protection</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Asset Management -->
-                <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-5">
-                    <div class="service-card-content">
-                        <div class="mb-8 flex justify-center">
-                            <img src="images/icon9.png" alt="Asset Management Icon" class="w-24 h-24 object-contain" />
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                            Asset Management
-                        </h3>
-                        <p class="service-description text-gray-700 leading-relaxed text-lg">
-                            Track, monitor, and optimize your IT assets for maximum ROI and operational efficiency.
-                        </p>
-                        <div class="learn-more-link flex items-center text-gray-700 font-semibold">
-                            <span>Learn more</span>
-                            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                    <!-- Asset Management -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="image-container mb-6">
+                                <img src="images/Assetmanagement.jpg" 
+                                     alt="Asset Management" 
+                                     class="service-image">
+                            </div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                Asset Management
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                Track, monitor, and optimize your IT assets for maximum ROI and operational efficiency.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Assets</span>
+                                <span class="px-3 py-1 bg-gray-100 text-orange-800 text-xs font-medium rounded-full">Management</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-teal-600 hover:to-teal-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Technical Support -->
-                <div class="service-card rounded-3xl shadow-xl p-10 fade-in stagger-6">
-                    <div class="service-card-content">
-                        <div class="mb-8 flex justify-center">
-                            <img src="images/techsupport.jpg" alt="Technical Support Icon" class="w-24 h-24 object-contain" />
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                            Technical Support
-                        </h3>
-                        <p class="service-description text-gray-700 leading-relaxed text-lg">
-                            24/7 expert technical support to keep your systems running smoothly and minimize downtime.
-                        </p>
-                        <div class="learn-more-link flex items-center text-gray-700 font-semibold">
-                            <span>Learn more</span>
-                            <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
+                    <!-- Technical Support -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="image-container mb-6">
+                                <img src="images/techsupport.jpg" 
+                                     alt="Technical Support" 
+                                     class="service-image">
+                            </div>
+                            <h3 class="text-xl font-bold text-black-800 mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                                Technical Support
+                            </h3>
+                            <p class="text-black-600 leading-relaxed mb-6">
+                                24/7 expert technical support to keep your systems running smoothly and minimize downtime.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-orange-100 text-black-800 text-xs font-medium rounded-full">Support</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">24/7</span>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact CTA Section -->
-    <section class="cta-section py-20 px-6 gradient-bg text-white relative">
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <h3 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">Ready to Elevate Your IT Infrastructure?</h3>
-            <p class="text-xl opacity-90 mb-12 leading-relaxed max-w-3xl mx-auto">
-                Let our expert team transform your technology landscape and drive your business forward
+        <!-- Call to Action Section -->
+ 
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer-gradient text-white">
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                &copy; 2024 Quad Plexus Ltd. All rights reserved.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="contact us.html" class="cta-button-primary px-10 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform">
-                    Schedule Consultation
-                </a>
-                <button class="cta-button-secondary text-white px-10 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform">
-                    View Case Studies
-                </button>
-            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-         <!-- Company Info -->
-                
-
-                <!-- Quick Links -->
-
-                <!-- Services -->
-                
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom pt-8 mt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center text-gray-400">
-                    <p class="text-center md:text-left mb-4 md:mb-0">&copy; 2024 QUAD PLEX. All rights reserved.</p>
-                    <div class="flex flex-wrap justify-center md:justify-end space-x-6">
-                        <a href="#" class="footer-link hover:text-orange-500 py-2">Privacy Policy</a>
-                        <a href="#" class="footer-link hover:text-orange-500 py-2">Terms of Service</a>
-                        <a href="#" class="footer-link hover:text-orange-500 py-2">cookies Policy</a>
-                    </div>
-                </div>
-            </div>
+        <!-- Back to Top Button -->
+        <div class="fixed bottom-8 right-8 z-40">
+            <button id="backToTop" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible">
+                ↑
+            </button>
         </div>
     </footer>
 
     <script>
-        // Loading overlay
-        window.addEventListener('load', function() {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            if (loadingOverlay) {
-                loadingOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    loadingOverlay.style.display = 'none';
-                }, 500);
-            }
-        });
-
         // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
 
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('header')) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
             
-            // Animate menu button
-            const icon = mobileMenuBtn.querySelector('svg path');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-            } else {
-                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-            }
-        });
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.opacity = '1';
+                    backToTop.style.visibility = 'visible';
+                } else {
+                    backToTop.style.opacity = '0';
+                    backToTop.style.visibility = 'invisible';
+                }
+            });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Add click handlers for Learn More buttons
+            document.querySelectorAll('button').forEach(button => {
+                if (button.textContent === 'Learn More') {
+                    button.addEventListener('click', function() {
+                        // Add a subtle feedback animation
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                        
+                        // You can add actual navigation logic here
+                        console.log('Learn more clicked for:', this.closest('.group').querySelector('h3').textContent);
                     });
                 }
             });
-        });
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%)';
-                header.style.backdropFilter = 'blur(15px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)';
-                header.style.backdropFilter = 'blur(10px)';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
+            // Header background on scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
                 }
             });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
         });
-
-        // REMOVED: Service card hover effects have been completely removed
-
-        // Parallax effect for floating elements
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.floating-element');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.1);
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Add dynamic pulse ring creation
-        function createPulseRing() {
-            const section = document.querySelector('.services-section');
-            const ring = document.createElement('div');
-            const colors = ['bg-white', 'bg-orange-400', 'bg-blue-400'];
-            const sizes = ['w-16 h-16', 'w-20 h-20', 'w-24 h-24'];
-            const opacities = ['opacity-5', 'opacity-10', 'opacity-8'];
-            
-            ring.className = `absolute rounded-full pulse-ring ${colors[Math.floor(Math.random() * colors.length)]} ${sizes[Math.floor(Math.random() * sizes.length)]} ${opacities[Math.floor(Math.random() * opacities.length)]}`;
-            
-            // Random position
-            const x = Math.random() * 80 + 10; // 10% to 90% from left
-            const y = Math.random() * 80 + 10; // 10% to 90% from top
-            
-            ring.style.left = x + '%';
-            ring.style.top = y + '%';
-            ring.style.animationDelay = Math.random() * 3 + 's';
-            
-            section.appendChild(ring);
-            
-            // Remove after animation
-            setTimeout(() => {
-                if (ring.parentNode) {
-                    ring.parentNode.removeChild(ring);
-                }
-            }, 4000);
-        }
-
-        // Create pulse rings periodically
-        setInterval(createPulseRing, 3000);
     </script>
-
 </body>
 </html>

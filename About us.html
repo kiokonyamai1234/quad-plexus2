@@ -12,8 +12,8 @@
     }
     
     .pulse-ring {
-  width: 10px;
-  height: 10px;
+  width: 150px;
+  height: 150px;
   border-radius: 9999px;
   background-color: rgba(59, 130, 246, 0.3); /* blue-500 with opacity */
   animation: pulse 2s infinite;
@@ -62,22 +62,29 @@
 
     nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 15px 0;
       position: relative;
     }
 
     .logo {
-      position: absolute;
-      left: 0;
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 1.5rem;
       font-weight: 700;
-      color: #df7a43;
+      
       text-decoration: none;
+    }
+
+    .logo-image {
+      width: 150px;
+      height: autopx;
+      border-radius: 8px;
+      object-fit: contain;
+      
+      padding: 5px;
     }
 
     .logo-icon {
@@ -111,7 +118,7 @@
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: #df7a43;
+      color: black;
     }
 
     .nav-links a::after {
@@ -121,7 +128,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background-color: #df7a43;
+      background-color: black;
       transition: width 0.3s ease;
     }
 
@@ -137,13 +144,11 @@
       color: #333;
       font-size: 1.5rem;
       cursor: pointer;
-      position: absolute;
-      right: 0;
     }
 
     .cta-btn {
       color: white !important;
-      background: linear-gradient(135deg, #df7a43, #c5633a);
+      background:black;
       padding: 10px 20px;
       border-radius: 25px;
       text-decoration: none;
@@ -161,7 +166,7 @@
     /* Hero Section */
     .hero {
       background-color: #df7a43;
-      padding: 80px 0 60px;
+      padding: 30px 0 10px;
       text-align: center;
       color: black;
       position: relative;
@@ -259,7 +264,7 @@
     .card h3 {
       font-size: 1.5rem;
       margin-bottom: 20px;
-      color: #df7a43;
+      color: black;
     }
 
     .card p {
@@ -270,14 +275,14 @@
     /* Values Section */
     .values {
       background: linear-gradient(135deg, #f7fafc, #edf2f7);
-      padding: 80px 0;
-      margin: 60px 0;
+      padding: 40px 0;
+      margin: 20px 0;
     }
 
     .values-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      gap: 10px;
     }
 
     .value-item {
@@ -388,6 +393,7 @@
       font-weight: 600;
       transition: all 0.3s ease;
       box-shadow: 0 10px 30px rgba(223, 122, 67, 0.3);
+      margin: 0 10px;
     }
 
     .btn:hover {
@@ -624,16 +630,33 @@
       }
     }
 
+    .cta-content {
+      display: flex;
+      gap: 40px;
+      max-width: 1200px;
+      width: 100%;
+      padding: 0 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 300px;
+    }
+
+    .cta-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      list-style: none;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
-      nav {
-        justify-content: space-between;
-      }
-
-      .logo {
-        position: static;
-      }
-
       .nav-links {
         display: none;
         position: absolute;
@@ -653,7 +676,6 @@
 
       .mobile-menu-btn {
         display: block;
-        position: static;
       }
 
       .hero {
@@ -694,6 +716,15 @@
       .newsletter-form {
         flex-direction: column;
       }
+
+      .cta-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-column {
+        max-width: 100%;
+      }
     }
 
     @media (max-width: 480px) {
@@ -707,61 +738,23 @@
         gap: 15px;
       }
     }
-    .cta {
-  background: linear-gradient(135deg, #1a202c, #2d3748);
-  color: white;
-  padding: 80px 0;
-  margin-top: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-}
-
-.cta-content {
-  display: flex;
-  gap: 40px;
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 20px;
-  flex-wrap: wrap;
-}
-
-.cta-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.cta-item {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 8px;
-}
-
   </style>
 </head>
 <body>
- 
-
-</div>
-
   <!-- Header -->
   <header>
     <div class="container">
       <nav>
         <a href="index.html" class="logo">
-          <div class="logo-icon">Q</div>
-          Quad Plexus
+          <!-- Replace with your actual logo image -->
+          <img src="images/Qp-removebg.png" alt="Quad Plexus Logo" class="logo-image" >
+          
         </a>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About Us</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="services.html">Services</a></li>
-          
-          
           <li><a href="contact us.html" class="cta-btn">Contact Us</a></li>
         </ul>
         <button class="mobile-menu-btn">☰</button>
@@ -774,10 +767,7 @@
     <div class="container">
       <h1>Who We Are</h1>
       <div class="team-description">
-          <p>Quad Plexus Ltd is a leading IT company offering solutions in healthcare, business software, logistics, and infrastructure.</p>
-
-<p>We serve diverse industries with deep insight into the challenges faced by East African businesses.</p>
-
+          <p>Quad Plexus Ltd is a dynamic IT solutions company specializing in healthcare systems, business software, logistics solutions, and IT infrastructure.</p>
         </div>
           <!-- Pulse Ring -->
     <div class="absolute inset-0 flex items-center justify-center">
@@ -847,21 +837,20 @@
   <section class="cta">
     <div class="container">
       <h2>Why Choose Us</h2>
-      <section class="cta">
-  <div class="cta-content">
-    <div class="cta-column">
-      <div class="cta-item"><li>Agile & Transparent Process</li></div>
-      <div class="cta-item"><li>Proven Delivery Record</li></div>
-    </div>
-    <div class="cta-column">
-      <div class="cta-item"><li>Scalable Architectures</li></div>
-      <div class="cta-item"><li>24/7 Support</li></div>
-    </div>
-  </div>
-</section>
-
-      <a href="contact.html" class="btn">Get In Touch</a>
-      <a href="#" class="btn">View Case studies</a>
+      <div class="cta-content">
+        <div class="cta-column">
+          <div class="cta-item">Agile & Transparent Process</div>
+          <div class="cta-item">Proven Delivery Record</div>
+        </div>
+        <div class="cta-column">
+          <div class="cta-item">Scalable Architectures</div>
+          <div class="cta-item">24/7 Support</div>
+        </div>
+      </div>
+      <div style="margin-top: 40px;">
+        <a href="contact.html" class="btn">Get In Touch</a>
+        <a href="#" class="btn">View Case studies</a>
+      </div>
     </div>
   </section>
 
@@ -870,7 +859,6 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-
           <div class="newsletter">
             <h4>Newsletter</h4>
             <p>Stay updated with our latest solutions and insights.</p>
@@ -892,7 +880,6 @@
             <li><a href="sitemap.html">Sitemap</a></li>
           </ul>
         </div>
-       
       </div>
     </div>
   </footer>

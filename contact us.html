@@ -5,25 +5,33 @@
   <title>Contact Us - Quadplexus</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: white;
-      color: #c5633a;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #df7a43 0%, #df7a43 100%);
+      color: black;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.6;
     }
 
     /* Header Styles */
     header {
-      background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
       padding: 15px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
+      backdrop-filter: blur(10px);
     }
 
     .header-container {
@@ -35,17 +43,28 @@
       align-items: center;
     }
 
-    .logo {
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-image {
+      width: 150px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
       font-size: 1.8rem;
       font-weight: bold;
       color: #df7a43;
       text-decoration: none;
     }
 
-    .nav-container {
-      flex: 1;
+    nav {
       display: flex;
-      justify-content: center;
+      align-items: center;
     }
 
     nav ul {
@@ -62,251 +81,428 @@
       font-weight: 500;
       font-size: 1rem;
       padding: 10px 15px;
-      border-radius: 5px;
+      border-radius: 8px;
       transition: all 0.3s ease;
       position: relative;
     }
 
     nav a:hover {
-      color: #df7a43;
+      color: black;
       background-color: rgba(223, 122, 67, 0.1);
+      transform: translateY(-2px);
     }
 
     nav a.active {
-      color: #df7a43;
-      background-color: rgba(223, 122, 67, 0.2);
+      color: black;
+      background-color: rgba(223, 122, 67, 0.15);
+      font-weight: 600;
     }
 
-    /* Mobile menu toggle */
     .menu-toggle {
       display: none;
       background: none;
       border: none;
-      color: #e2e8f0;
+      color: #2d3748;
       font-size: 1.5rem;
       cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #2d3748;
+      margin: 2px 0;
+      transition: 0.3s;
+      border-radius: 2px;
     }
 
     .main-content {
       flex: 1;
+      padding: 40px 0;
     }
 
-    .section {
-      padding: 60px 20px;
-      max-width: 1000px;
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      padding: 60px 20px 40px;
+      max-width: 800px;
       margin: 0 auto;
     }
 
-    .contact {
-      background-color: #c5633a;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: black;
+      margin-bottom: 20px;
+      background: black;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    h2 {
-      text-align: center;
-      color: #222;
+    .hero-section p {
+      font-size: 1.2rem;
+      color: black;
       margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .contact-info {
+    /* Contact Section */
+    .contact-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info-section {
+      background: #777777;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(223, 122, 67, 0.1);
+    }
+
+    .contact-info-section h2 {
+      font-size: 2rem;
+      color: black;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .contact-methods {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 20px;
+      flex-direction: column;
+      gap: 25px;
     }
 
     .contact-item {
-      background-color: #f1f1f1;
-      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
       padding: 20px;
-      flex: 1 1 300px;
-      text-align: center;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(223, 122, 67, 0.15);
+      border-color: rgba(223, 122, 67, 0.2);
     }
 
     .contact-icon {
-      font-size: 2em;
-      margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #df7a43, #c5633a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      flex-shrink: 0;
     }
 
-    .contact-item h3 {
-      margin: 10px 0;
-      font-size: 1.2em;
-      color: #444;
+    .contact-details h3 {
+      font-size: 1.3rem;
+      color: #1a202c;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
 
-    .contact-item p,
-    .contact-item a {
-      font-size: 1em;
-      color: #555;
-      line-height: 1.6;
+    .contact-details p,
+    .contact-details a {
+      color: #4a5568;
       text-decoration: none;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    .contact-item a:hover {
+    .contact-details a:hover {
+      color: #df7a43;
       text-decoration: underline;
+    }
+
+    /* Contact Form */
+    .contact-form-section {
+      background: #777777;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(223, 122, 67, 0.1);
+    }
+
+    .contact-form-section h2 {
+      font-size: 2rem;
+      color: #1a202c;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #2d3748;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 15px 18px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background-color: #f8fafc;
+      color: #2d3748;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #df7a43;
+      background-color: white;
+      box-shadow: 0 0 0 4px rgba(223, 122, 67, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+      max-height: 200px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #df7a43, #c5633a);
+      color: white;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(223, 122, 67, 0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .submit-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Success/Error Messages */
+    .message {
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .message.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .message.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
     }
 
     /* Footer Styles */
     footer {
-      background: linear-gradient(135deg, #000, #1a202c);
+      background: linear-gradient(135deg, #1a202c, #2d3748);
       color: white;
-      padding: 10px 0 10px;
-      margin-top: 60px;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 20px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 20px;
-    }
-
-    .footer-section h3 {
-      color: #df7a43;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .footer-section p,
-    .footer-section li {
-      color: #e2e8f0;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 8px;
-    }
-
-    .footer-section a {
-      color: #e2e8f0;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: #df7a43;
-    }
-
-    .contact-info-footer {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .contact-info-footer i {
-      margin-right: 10px;
-      width: 20px;
-      color: #df7a43;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .social-links a {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background-color: #df7a43;
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background-color: #c5633a;
-      transform: translateY(-2px);
+      padding: 40px 0 20px;
+      margin-top: 80px;
     }
 
     .footer-bottom {
-      border-top: 1px solid #2d3748;
-      padding-top: 30px;
       text-align: center;
       color: #a0aec0;
       max-width: 1200px;
       margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 0 20px;
     }
 
     .footer-bottom p {
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 0.9rem;
     }
 
-    /* Fade-in animation */
+    /* Mobile Navigation */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    .mobile-nav.active {
+      display: block;
+    }
+
+    .mobile-nav ul {
+      flex-direction: column;
+      padding: 20px;
+      gap: 0;
+    }
+
+    .mobile-nav li {
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .mobile-nav li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    /* Animations */
     .fade-in {
-      animation: fadeIn 1s ease-in;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .slide-up {
+      animation: slideUp 0.8s ease-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
       .header-container {
-        flex-direction: column;
-        gap: 15px;
+        position: relative;
       }
 
-      .nav-container {
-        width: 100%;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+      nav {
+        display: none;
       }
 
       .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
+        display: flex;
       }
 
-      .nav-container {
-        display: none;
-        width: 100%;
+      .hero-section h1 {
+        font-size: 2.5rem;
       }
 
-      .nav-container.active {
-        display: block;
+      .hero-section p {
+        font-size: 1.1rem;
       }
 
-      .footer-content {
+      .contact-section {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 40px;
       }
 
-      .social-links {
-        justify-content: center;
+      .contact-info-section,
+      .contact-form-section {
+        padding: 30px 25px;
       }
 
-      .section {
-        padding: 40px 20px;
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+      }
+
+      .logo-image {
+        width: 50px;
+        height: 50px;
+      }
+
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 40px 20px 30px;
+      }
+
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .contact-info-section,
+      .contact-form-section {
+        padding: 25px 20px;
       }
     }
   </style>
@@ -315,38 +511,145 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <a href="#" class="logo">Quadplexus</a>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <div class="nav-container" id="navContainer">
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="About us.html">About</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="/contact" class="active">Contact Us</a></li>
-          </ul>
-        </nav>
+      <div class="logo-section">
+        <img src="images/Qp-removebg.png" alt="Quad Plexus Logo" class="logo-image">
+      </div>
+
+      <nav id="desktopNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About us.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact us.html" class="active">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-nav" id="mobileNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About us.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact us.html" class="active">Contact Us</a></li>
+        </ul>
       </div>
     </div>
   </header>
 
   <main class="main-content">
-    <section id="contact" class="section contact fade-in">
-      <h2>Contact Us</h2>
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <h3>Phone</h3>
-          <p>+254 722 511 662</p>
-          <p>+254 796 138 151</p>
-          <p>+254 789 866 353</p>
+    <!-- Hero Section -->
+    <section class="hero-section fade-in">
+      <h1>Get In Touch</h1>
+      <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <!-- Contact Information -->
+      <div class="contact-info-section slide-up">
+        <h2>Contact Information</h2>
+        <div class="contact-methods">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h3>Phone Numbers</h3>
+              <p>+254 722 511 662</p>
+              <p>+254 796 138 151</p>
+              <p>+254 789 866 353</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-details">
+              <h3>Email Address</h3>
+              <a href="mailto:info@quadplexus.com">info@quadplexus.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>lemac , Church road</p>
+              <p>Available for consultations</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">⏰</div>
+            <div class="contact-details">
+              <h3>Business Hours</h3>
+              <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+              <p>Saturday: 9:00 AM - 4:00 PM</p>
+            </div>
+          </div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">✉️</div>
-          <h3>Email</h3>
-          <a href="mailto:info@quadplexus.com">info@quadplexus.com</a>
-        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-section slide-up">
+        <h2>Send us a Message</h2>
+        
+        <div id="message" class="message"></div>
+        
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="company">Company/Organization</label>
+            <input type="text" id="company" name="company">
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Request *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Please select a subject</option>
+              <option value="general-inquiry">General Inquiry</option>
+              <option value="product-info">Product Information</option>
+              <option value="service-request">Service Request</option>
+              <option value="technical-support">Technical Support</option>
+              <option value="partnership">Partnership Opportunities</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message-text">Message *</label>
+            <textarea id="message-text" name="message" placeholder="Please provide details about your inquiry..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
   </main>
@@ -359,10 +662,131 @@
   </footer>
 
   <script>
+    // Mobile menu functionality
     function toggleMenu() {
-      const navContainer = document.getElementById('navContainer');
-      navContainer.classList.toggle('active');
+      const mobileNav = document.getElementById('mobileNav');
+      const menuToggle = document.querySelector('.menu-toggle');
+      
+      mobileNav.classList.toggle('active');
+      menuToggle.classList.toggle('active');
     }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const header = document.querySelector('header');
+      const mobileNav = document.getElementById('mobileNav');
+      const menuToggle = document.querySelector('.menu-toggle');
+      
+      if (!header.contains(e.target)) {
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+
+    // Close mobile menu when window is resized to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        const mobileNav = document.getElementById('mobileNav');
+        const menuToggle = document.querySelector('.menu-toggle');
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+
+    // Form submission handling
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      const form = document.getElementById('contactForm');
+      const messageDiv = document.getElementById('message');
+      const submitBtn = form.querySelector('.submit-btn');
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Basic validation
+      if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+        showMessage('Please fill in all required fields.', 'error');
+        return;
+      }
+      
+      if (!isValidEmail(data.email)) {
+        showMessage('Please enter a valid email address.', 'error');
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      
+      // Simulate form submission (replace with actual form handling)
+      setTimeout(() => {
+        showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
+        form.reset();
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+        
+        // In a real implementation, you would send the data to your server
+        console.log('Form data:', data);
+      }, 1500);
+    }
+    
+    function showMessage(text, type) {
+      const messageDiv = document.getElementById('message');
+      messageDiv.textContent = text;
+      messageDiv.className = `message ${type}`;
+      messageDiv.style.display = 'block';
+      
+      // Auto-hide success messages after 5 seconds
+      if (type === 'success') {
+        setTimeout(() => {
+          messageDiv.style.display = 'none';
+        }, 5000);
+      }
+    }
+    
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Add smooth scrolling animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.slide-up');
+      animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+      });
+    });
+
+    // Add form field focus effects
+    document.querySelectorAll('input, textarea, select').forEach(field => {
+      field.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+      });
+      
+      field.addEventListener('blur', function() {
+        this.parentElement.classList.remove('focused');
+      });
+    });
   </script>
 </body>
 </html>
