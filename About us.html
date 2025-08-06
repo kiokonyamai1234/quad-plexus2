@@ -1,954 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About Us - Quad Plexus Ltd</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    .pulse-ring {
-  width: 150px;
-  height: 150px;
-  border-radius: 9999px;
-  background-color: rgba(59, 130, 246, 0.3); /* blue-500 with opacity */
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.8);
-    opacity: 1;
-  }
-  70% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-}
-
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(135deg, #777777 0%, #777777 100%);
-      
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header Styles */
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-      position: relative;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      
-      text-decoration: none;
-    }
-
-    .logo-image {
-      width: 150px;
-      height: autopx;
-      border-radius: 8px;
-      object-fit: contain;
-      
-      padding: 5px;
-    }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #df7a43, #c5633a);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-      padding: 5px 0;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: black;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: black;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: #333;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .cta-btn {
-      color: white !important;
-      background:black;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(223, 122, 67, 0.3);
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(223, 122, 67, 0.4);
-      color: white !important;
-    }
-
-    /* Hero Section */
-    .hero {
-      background-color: #df7a43;
-      padding: 30px 0 10px;
-      text-align: center;
-      color: black;
-      position: relative;
-      margin-top: 70px;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-      animation: shimmer 3s infinite;
-    }
-
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.95;
-    }
-
-    /* Main Content */
-    .main-content {
-      background-color: #777777;
-      position: relative;
-      z-index: 1;
-      margin-top: -50px;
-      border-radius: 20px 20px 0 0;
-      box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
-    }
-
-    .section {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 50px;
-      background-color: black;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Mission & Vision Grid */
-    .mission-vision {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin: 50px 0;
-    }
-
-    .card {
-      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background-color: #df7a43;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: black;
-    }
-
-    .card p {
-      color: #4a5568;
-      font-size: 1.1rem;
-    }
-
-    /* Values Section */
-    .values {
-      background: linear-gradient(135deg, #f7fafc, #edf2f7);
-      padding: 40px 0;
-      margin: 20px 0;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
-    }
-
-    .value-item {
-      text-align: center;
-      padding: 30px 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
-
-    .value-item:hover {
-      transform: scale(1.05);
-    }
-
-    .value-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 20px;
-      background-color: #df7a43;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: white;
-    }
-
-    .value-item h4 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #1a202c;
-    }
-
-    .value-item p {
-      color: #718096;
-      font-size: 0.95rem;
-    }
-
-    /* Team Section */
-    .team {
-      text-align: center;
-      padding: 10px 0;
-      font-weight: bolder;
-    }
-
-    .team-description {
-      max-width: 800px;
-      margin: 0 auto 50px;
-      font-size: 1.2rem;
-      color: black;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin: 50px 0;
-    }
-
-    .stat-item {
-      padding: 30px;
-      background: linear-gradient(135deg, #df7a43, #777777);
-      color: white;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    /* CTA Section */
-    .cta {
-      background: linear-gradient(135deg, #1a202c, #2d3748);
-      color: white;
-      text-align: center;
-      padding: 80px 0;
-      margin-top: 60px;
-    }
-
-    .cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .cta p {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      opacity: 0.9;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      background: linear-gradient(135deg, #df7a43, #c5633a);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(223, 122, 67, 0.3);
-      margin: 0 10px;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(223, 122, 67, 0.4);
-    }
-
-    /* Enhanced Footer Styles */
-    footer {
-      background: linear-gradient(135deg, #000, #1a202c);
-      color: white;
-      padding: 80px 0 30px;
-      margin-top: 0;
-      position: relative;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #df7a43, transparent);
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 50px;
-      margin-bottom: 50px;
-    }
-
-    .footer-section h3 {
-      color: #df7a43;
-      font-size: 1.4rem;
-      margin-bottom: 25px;
-      font-weight: 600;
-      position: relative;
-    }
-
-    .footer-section h3::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 30px;
-      height: 2px;
-      background-color: #df7a43;
-    }
-
-    .footer-section p,
-    .footer-section li {
-      color: #e2e8f0;
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 10px;
-      transition: all 0.3s ease;
-    }
-
-    .footer-section ul li:hover {
-      transform: translateX(5px);
-    }
-
-    .footer-section a {
-      color: #e2e8f0;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: #df7a43;
-    }
-
-    .contact-info {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      transition: all 0.3s ease;
-    }
-
-    .contact-info:hover {
-      transform: translateX(5px);
-    }
-
-    .contact-info i {
-      margin-right: 15px;
-      width: 20px;
-      color: #df7a43;
-      font-size: 1.1rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .social-links a {
-      display: inline-block;
-      width: 45px;
-      height: 45px;
-      background: linear-gradient(135deg, #df7a43, #c5633a);
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 45px;
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(223, 122, 67, 0.3);
-    }
-
-    .social-links a:hover {
-      background: linear-gradient(135deg, #c5633a, #a0502d);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(223, 122, 67, 0.4);
-    }
-
-    .newsletter {
-      background: rgba(223, 122, 67, 0.1);
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid rgba(223, 122, 67, 0.2);
-    }
-
-    .newsletter h4 {
-      color: #df7a43;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-
-    .newsletter p {
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      color: #cbd5e0;
-    }
-
-    .newsletter-form {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .newsletter-form input::placeholder {
-      color: #a0aec0;
-    }
-
-    .newsletter-form input:focus {
-      outline: none;
-      border-color: #df7a43;
-      box-shadow: 0 0 0 3px rgba(223, 122, 67, 0.1);
-    }
-
-    .newsletter-form button {
-      background: linear-gradient(135deg, #df7a43, #c5633a);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .newsletter-form button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(223, 122, 67, 0.3);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #2d3748;
-      padding-top: 30px;
-      text-align: center;
-      color: #a0aec0;
-    }
-
-    .footer-bottom-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: #a0aec0;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover {
-      color: #df7a43;
-    }
-
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s forwards;
-    }
-
-    .fade-in:nth-child(2) { animation-delay: 0.2s; }
-    .fade-in:nth-child(3) { animation-delay: 0.4s; }
-    .fade-in:nth-child(4) { animation-delay: 0.6s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .cta-content {
-      display: flex;
-      gap: 40px;
-      max-width: 1200px;
-      width: 100%;
-      padding: 0 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .cta-column {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 300px;
-    }
-
-    .cta-item {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 8px;
-      list-style: none;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        flex-direction: column;
-        padding: 20px;
-        gap: 20px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      .hero {
-        padding: 100px 0 60px;
-      }
-      
-      .section {
-        padding: 40px 0;
-      }
-      
-      .values {
-        padding: 60px 0;
-        margin: 40px 0;
-      }
-      
-      .cta {
-        padding: 60px 0;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .footer-bottom-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        justify-content: center;
-      }
-
-      .social-links {
-        justify-content: center;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
-
-      .cta-content {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .cta-column {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .newsletter-form {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .footer-links {
-        flex-direction: column;
-        gap: 15px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Quad Plexus Ltd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #df7a43 0%, #df7a43 100%);
+        }
+        
+        .card-gradient {
+            background: linear-gradient(145deg, #777777 0%, #777777 100%);
+        }
+        
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+        
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .pulse-ring {
+            animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* Header Styles */
+        .header-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: black;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: black;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Footer Styles */
+        .footer-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        }
+
+        .social-hover {
+            transition: all 0.3s ease;
+        }
+
+        .social-hover:hover {
+            transform: translateY(-3px);
+            color: #df7a43;
+        }
+
+        .footer-link {
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #df7a43;
+            transform: translateX(5px);
+        }
+
+        /* Value Icons */
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        /* Logo Styles - Increased size */
+        .logo-image {
+            width: 200px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Stats animation */
+        .stat-number {
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
+        }
+
+        /* CTA Grid */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .cta-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+    </style>
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <a href="index.html" class="logo">
-          <!-- Replace with your actual logo image -->
-          <img src="images/Qp-removebg.png" alt="Quad Plexus Logo" class="logo-image" >
-          
-        </a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact us.html" class="cta-btn">Contact Us</a></li>
-        </ul>
-        <button class="mobile-menu-btn">☰</button>
-      </nav>
-    </div>
-  </header>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 header-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo - Increased container size -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-28 h-28">
+                        <img src="images/Qp-removebg.png" alt="Quad Plexus Logo" class="logo-image"> 
+                    </div>
+                </div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Who We Are</h1>
-      <div class="team-description">
-          <p>Quad Plexus Ltd is a dynamic IT solutions company specializing in healthcare systems, business software, logistics solutions, and IT infrastructure.</p>
-        </div>
-          <!-- Pulse Ring -->
-    <div class="absolute inset-0 flex items-center justify-center">
-        <div class="pulse-ring"></div>
-    </div>
-    </div>
-  </section>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 font-medium">About Us</a>
+                    <a href="products.html" class="nav-link text-gray-700 font-medium">Products</a>
+                    <a href="services.html" class="nav-link text-gray-700 font-medium">Services</a>
+                    <a href="contact us.html" class="nav-link text-gray-700 font-medium">Contact</a>
+                </nav>
 
-  <!-- Main Content -->
-  <div class="main-content">
-    <div class="container">
-      
-      <!-- Mission & Vision -->
-      <section class="section">
-        <h2 class="section-title"></h2>
-        <div class="mission-vision">
-          <div class="card fade-in">
-            <h3>🎯 Our Mission</h3>
-            <p>To empower businesses and institutions across East Africa with innovative, scalable, and tailored IT solutions that drive growth and operational efficiency. We are committed to being a trusted partner in digital transformation, delivering measurable results at affordable prices.</p>
-          </div>
-          <div class="card fade-in">
-            <h3>🔮 Our Vision</h3>
-            <p>To be the leading IT solutions provider in East Africa, recognized for our innovation, reliability, and commitment to client success. We envision a digitally empowered region where businesses thrive through technology.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Values Section -->
-      <section class="values">
-        <div class="container">
-          <h2 class="section-title">Our Core Values</h2>
-          <div class="values-grid">
-            <div class="value-item fade-in">
-              <div class="value-icon">🤝</div>
-              <h4>Trust & Integrity</h4>
-              <p>Building long-term relationships based on honesty, transparency, and reliable service delivery.</p>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden menu-toggle flex flex-col justify-center items-center w-8 h-8 space-y-1">
+                    <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                    <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                    <span class="w-6 h-0.5 bg-gray-700 transition-all"></span>
+                </button>
             </div>
-            <div class="value-item fade-in">
-              <div class="value-icon">💡</div>
-              <h4>Innovation</h4>
-              <p>Staying at the forefront of technology trends to provide cutting-edge solutions for our clients.</p>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden mobile-menu absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg">
+                <div class="px-6 py-4 space-y-4">
+                    <a href="index.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Home</a>
+                    <a href="#about" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">About</a>
+                    <a href="products.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Products</a>
+                    <a href="services.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Services</a>
+                    <a href="contact us.html" class="block text-gray-700 font-medium hover:text-orange-500 transition-colors">Contact</a>
+                    <a href="contact us.html" class="block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg font-semibold text-center">
+                        Get Quote
+                    </a>
+                </div>
             </div>
-            <div class="value-item fade-in">
-              <div class="value-icon">🎯</div>
-              <h4>Results-Driven</h4>
-              <p>Focusing on measurable outcomes that directly impact our clients' business success and growth.</p>
+        </div>
+    </header>
+
+    <!-- Add padding to account for fixed header -->
+    <div class="pt-20">
+        <!-- Hero Section -->
+        <section class="gradient-bg py-20 px-6 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative max-w-7xl mx-auto text-center text-black">
+                <div class="fade-in">
+                    <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                        WHO WE ARE
+                        
+                    </h1>
+                    <p class="text-lg text-black-600 max-w-2xl mx-auto leading-relaxed">
+                        Quad Plexus Ltd is a dynamic IT solutions company specializing in healthcare systems, business software, logistics solutions, and IT infrastructure.
+                    </p>
+                </div>
             </div>
-            <div class="value-item fade-in">
-              <div class="value-icon">💰</div>
-              <h4>Affordability</h4>
-              <p>Delivering enterprise-grade solutions at prices that make sense for businesses of all sizes.</p>
+            
+            <!-- Animated background elements -->
+            <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full pulse-ring"></div>
+            <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full pulse-ring" style="animation-delay: 1s;"></div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section id="about" class="py-20 px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid gap-8 grid-cols-1 md:grid-cols-2">
+                    
+                    <!-- Mission Card -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="mb-6 text-center">
+                                <div class="value-icon">🎯</div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-black-800 mb-6 group-hover:text-gray-600 transition-colors duration-300 text-center">
+                                Our Mission
+                            </h3>
+                            <p class="text-black-600 leading-relaxed text-center">
+                                To empower businesses and institutions across East Africa with innovative, scalable, and tailored IT solutions that drive growth and operational efficiency. We are committed to being a trusted partner in digital transformation, delivering measurable results at affordable prices.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Vision Card -->
+                    <div class="card-gradient rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="mb-6 text-center">
+                                <div class="value-icon">🔮</div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-black-800 mb-6 group-hover:text-gray-600 transition-colors duration-300 text-center">
+                                Our Vision
+                            </h3>
+                            <p class="text-black-600 leading-relaxed text-center">
+                                To be the leading IT solutions provider in East Africa, recognized for our innovation, reliability, and commitment to client success. We envision a digitally empowered region where businesses thrive through technology.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- About Section -->
-      <section class="section team">
-        <div class="team-description">
-          <p></p>
-        </div>
-      </section>
+        <!-- Core Values Section -->
+        <section class="py-20 px-6 bg-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Core Values</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        The principles that guide everything we do and define who we are as a company
+                    </p>
+                </div>
+
+                <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+                    
+                    <!-- Trust & Integrity -->
+                    <div class="bg-white rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10 text-center">
+                            <div class="mb-6">
+                                <div class="value-icon">🤝</div>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                                Trust & Integrity
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Building long-term relationships based on honesty, transparency, and reliable service delivery.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Innovation -->
+                    <div class="bg-white rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10 text-center">
+                            <div class="mb-6">
+                                <div class="value-icon">💡</div>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                                Innovation
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Staying at the forefront of technology trends to provide cutting-edge solutions for our clients.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Results-Driven -->
+                    <div class="bg-white rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10 text-center">
+                            <div class="mb-6">
+                                <div class="value-icon">🎯</div>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                                Results-Driven
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Focusing on measurable outcomes that directly impact our clients' business success and growth.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Affordability -->
+                    <div class="bg-white rounded-3xl shadow-lg p-8 hover-lift fade-in group relative overflow-hidden">
+                        <div class="relative z-10 text-center">
+                            <div class="mb-6">
+                                <div class="value-icon">💰</div>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                                Affordability
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed">
+                                Delivering enterprise-grade solutions at prices that make sense for businesses of all sizes.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-16 px-6 bg-gradient-to-r from-orange-700 to-orange-600 text-white">
+            <div class="max-w-7xl mx-auto text-center">
+                <h3 class="text-3xl md:text-4xl font-bold mb-6">Why Choose Us</h3>
+                <p class="text-lg opacity-90 mb-12 leading-relaxed max-w-2xl mx-auto">
+                    We combine expertise, innovation, and reliability to deliver exceptional results for our clients
+                </p>
+                
+                <div class="cta-grid">
+                    <div class="cta-item">
+                        <h4 class="font-semibold text-lg mb-2">Agile & Transparent Process</h4>
+                        <p class="text-sm opacity-90">Clear communication and flexible methodologies</p>
+                    </div>
+                    <div class="cta-item">
+                        <h4 class="font-semibold text-lg mb-2">Proven Delivery Record</h4>
+                        <p class="text-sm opacity-90">Consistent success across diverse industries</p>
+                    </div>
+                    <div class="cta-item">
+                        <h4 class="font-semibold text-lg mb-2">Scalable Architectures</h4>
+                        <p class="text-sm opacity-90">Solutions that grow with your business</p>
+                    </div>
+                    <div class="cta-item">
+                        <h4 class="font-semibold text-lg mb-2">24/7 Support</h4>
+                        <p class="text-sm opacity-90">Round-the-clock technical assistance</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+                    <a href="contact us.html" class="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
+                        View Case Studies
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="py-16 px-6 bg-gray-100">
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Stay Updated</h3>
+                <p class="text-gray-600 mb-8">Get the latest insights and solutions delivered to your inbox</p>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <form class="flex flex-col sm:flex-row gap-4" onsubmit="return handleSubscription(event)">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email address" 
+                            required 
+                            class="flex-1 px-6 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        >
+                        <button 
+                            type="submit" 
+                            class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105"
+                        >
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
 
-  <!-- Call to Action -->
-  <section class="cta">
-    <div class="container">
-      <h2>Why Choose Us</h2>
-      <div class="cta-content">
-        <div class="cta-column">
-          <div class="cta-item">Agile & Transparent Process</div>
-          <div class="cta-item">Proven Delivery Record</div>
+    <!-- Enhanced Footer -->
+    <footer class="footer-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2024 Quad Plexus Ltd. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="privacy.html" class="footer-link text-gray-400 text-sm">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link text-gray-400 text-sm">Terms of Service</a>
+                    <a href="cookies.html" class="footer-link text-gray-400 text-sm">Cookies Policy</a>
+                </div>
+            </div>
         </div>
-        <div class="cta-column">
-          <div class="cta-item">Scalable Architectures</div>
-          <div class="cta-item">24/7 Support</div>
+
+        <!-- Back to Top Button -->
+        <div class="fixed bottom-8 right-8 z-40">
+            <button id="backToTop" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 invisible">
+                ↑
+            </button>
         </div>
-      </div>
-      <div style="margin-top: 40px;">
-        <a href="contact.html" class="btn">Get In Touch</a>
-        <a href="#" class="btn">View Case studies</a>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Enhanced Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <div class="newsletter">
-            <h4>Newsletter</h4>
-            <p>Stay updated with our latest solutions and insights.</p>
-            <form class="newsletter-form" onsubmit="return false;">
-              <input type="email" placeholder="Your email address" required>
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2024 Quad Plexus Ltd. All rights reserved.</p>
-          <ul class="footer-links">
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="cookies.html">Cookies Policy</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
 
-  <script>
-    // Header scroll effect - Updated to maintain white background
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 1)';
-        header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.1)';
-      } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-      }
-    });
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
 
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('header')) {
+                    menuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
+            });
 
-    mobileMenuBtn.addEventListener('click', function() {
-      navLinks.classList.toggle('active');
-    });
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    // Newsletter form
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input[type="email"]').value;
-        if (email) {
-          alert('Thank you for subscribing! We\'ll keep you updated with our latest news and insights.');
-          this.querySelector('input[type="email"]').value = '';
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.opacity = '1';
+                    backToTop.style.visibility = 'visible';
+                } else {
+                    backToTop.style.opacity = '0';
+                    backToTop.style.visibility = 'invisible';
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Header background on scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                }
+            });
+        });
+
+        // Newsletter subscription handler
+        function handleSubscription(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            if (email) {
+                // Add success feedback
+                const button = event.target.querySelector('button');
+                const originalText = button.textContent;
+                button.textContent = 'Subscribed!';
+                button.style.background = 'linear-gradient(to right, #10b981, #059669)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    event.target.reset();
+                }, 2000);
+            }
+            return false;
         }
-      });
-    }
-
-    // Add scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
-
-    // Add smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
